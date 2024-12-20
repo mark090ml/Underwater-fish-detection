@@ -56,10 +56,10 @@ def detect_image(placeholder):
     """
 
     with st.spinner('Detecting 🐟 🐠 🦈 🐡...'):
-        call(["python", "/workspaces/Underwater-fish-detection/yolov7/app/detect.py", "--weights", "/workspaces/Underwater-fish-detection/app/weights/best.pt",
+        call(["python", "/app/detect.py", "--weights", "/app/weights/best.pt",
               "--conf-thres", "0.1", "--source", "source.jpg", "--no-trace" ,"--exist-ok", "--project", "detection", "--name", "output"])
 
-        detected_img = glob.glob("/workspaces/Underwater-fish-detection/app/detection/output/**.jpg")[0]
+        detected_img = glob.glob("/app/detection/output/**.jpg")[0]
         
         placeholder.empty()
         img = Image.open(detected_img)
