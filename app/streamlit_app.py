@@ -3,7 +3,7 @@ import glob
 from PIL import Image
 import streamlit as st
 from subprocess import call
-
+os.chdir("/workspaces/Underwater-fish-detection/app")
 
 def main():
     new_title = '<p style="font-size: 42px;">Welcome to Fish Detection App!</p>'
@@ -54,10 +54,10 @@ def detect_image(placeholder):
     """
 
     with st.spinner('Detecting 🐟 🐠 🦈 🐡...'):
-        call(["python", "./yolov7/detect.py", "--weights", "./weights/best.pt",
+        call(["python", "yolov7/detect.py", "--weights", "weights/best.pt",
               "--conf-thres", "0.1", "--source", "source.jpg", "--no-trace" ,"--exist-ok", "--project", "detection", "--name", "output"])
 
-        detected_img = glob.glob("./detection/output/**.jpg")[0]
+        detected_img = glob.glob("detection/output/**.jpg")[0]
 
         placeholder.empty()
         img = Image.open(detected_img)
