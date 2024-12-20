@@ -3,7 +3,7 @@ import glob
 from PIL import Image
 import streamlit as st
 from subprocess import call
-os.chdir("/workspaces/Underwater-fish-detection/app")
+#os.chdir("/workspaces/Underwater-fish-detection/app")
 
 def main():
     new_title = '<p style="font-size: 42px;">Welcome to Fish Detection App!</p>'
